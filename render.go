@@ -1,5 +1,5 @@
 package main
-
+// add a comment
 import (
 	"fmt"
 	gl "github.com/chsc/gogl/gl42"
