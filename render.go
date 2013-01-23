@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	Title  = "Spinning Gopher"
+	Title  = "Spinning Gophers"
 	Width  = 640
 	Height = 480
 )
@@ -28,7 +28,7 @@ func main() {
 	}
 	defer glfw.Terminate()
 
-	glfw.OpenWindowHint(glfw.WindowNoResize, 1)
+	glfw.OpenWindowHint(glfw.WindowNoResize, 0)
 
 	if err := glfw.OpenWindow(Width, Height, 0, 0, 0, 0, 16, 0, glfw.Windowed); err != nil {
 		fmt.Fprintf(os.Stderr, "glfw: %s\n", err)
@@ -47,8 +47,12 @@ func main() {
 
 		glfw.SwapBuffers()
 	}
+
+	Initialize()
 }
 
-func initRendering() {
-    gl.Enable()
+func Initialize() {
+	fmt.Println("INFO: OpenGL Version", gl.GetString(gl.VERSION))
+	gl.Enable(gl.DEPTH_TEST)
+	gl.ClearColor(0.0, 0.0, 0.0, 0.0)
 }
